@@ -9,17 +9,32 @@ HR has provided us with an employee dataset consisting of 15000 rows of data. I 
 
 ## Exploratory Data Analysis 🔍
 After the dataset was cleaned up, I conducted Exploratory Data Analysis, to get a feel for the data and get a sense of what I was working with. During stage, I was mainly concerned with uncovering the distribution of certain variables across several categories. This could be an important indicator of potential relationships among variables. For example, the following plot shows that there were significantly more work accidents in the Sales department than any other department within the company. 
+<br>
 ![workplace accidents](department_work_accidents.png)
+<br>
 This could raise questions for later analysis:
 - Why is the Sales department more accident prone, even though Sales seems like a relatively "safe" department?
 - Should we investigate into how a workplace accident was defined?
 
 Another example is this plot, showing the distribution of employee satisfaction and their last evaluation score based on their salary level.
+<br>
 ![satisfaction and evaluation by salary](satisfaction_evaluation_distributions_by_salary.png)
+<br>
 This plot gives us some insight about employee performance and satisfaction across the three salary bands. Surprisingly enough, employee performance and satisfaction overall was very uniform across different salary levels. However, what is also uniform and consistent is the lower levels of employee satisfaction and performance among those who ended up leaving the company - suggesting that maybe employees that became dissatisfied with the company ended up seeing performance suffer as a result. A potential next step would be to inquire about the specifities of these employees' situations, to potentially help uncover the reason as to their dissatisfaction.
 
 ## Building the model 🔧
 I decided on a Logistic Regression model, since I believed it would prove useful to any external stakeholders to be able to visualize what features were most influential in predicting employee churn. This could be done directly using the model coefficients. To avoid any one feature's numerical scale from "dominating", all numerical features were standardized. Categorical features were encoded to ensure compliance with sci-kit learn's models. The model was then divided into a 75/25 train/test split. 
 
 ## Model results 💾
-The model overall performed to a respectable degree. Some notworthy results were a 91\% accuracy score, as well as an 89\% AUROC score, as shown by the plot below. ![auroc plot](auroc_plot.png). In terms of determining the top features for predicting employee churn, we can refer to the plot below: ![model coefficients](final_model_coefficients.png) The most important feature is by far employee satisfaction. This makes sense, as an employee would be hard-pressed to find a new place of work if they are unsatisfied with their current job. To further leverage this insight, the HR team may take it upon themselves to investigate this matter to a greater extent; they could examine historical employee records to see if there are any telltale signs that the employee was unhappy - lesser pay, extended hours, etc. Lastly, the company as a whole could aim to use this information to improve their operations to reduce the chance of employees leaving in the future.
+The model overall performed to a respectable degree. Some notworthy results were a 91\% accuracy score, as well as an 89\% AUROC score, as shown by the plot below. 
+<br>
+![auroc plot](auroc_plot.png). 
+<br>
+In terms of determining the top features for predicting employee churn, we can refer to the plot below: 
+<br>
+![model coefficients](final_model_coefficients.png) 
+<br>
+The most important feature is by far employee satisfaction. This makes sense, as an employee would be hard-pressed to find a new place of work if they are unsatisfied with their current job. To further leverage this insight, the HR team may take it upon themselves to investigate this matter to a greater extent; they could examine historical employee records to see if there are any telltale signs that the employee was unhappy - lesser pay, extended hours, etc. Lastly, the company as a whole could aim to use this information to improve their operations to reduce the chance of employees leaving in the future.
+
+## Final thoughts ✏️
+Overall, I thoroughly enjoyed this capstone project, as it gave me an idea of how a data analyst would go about solving an assigned task. This scenario in particular made me realize the importance of deriving insights from analysis. Being able to write code and produce plots is fine and dandy, but it doesn't mean much unless you are able to translate those into actionable insights that stakeholders are able to intuitively understand and act upon. Such was the case here; Salifort Motors is worried about employee satisfaction and has been losing workers. If we don't provide them with actionable insights and reliable code/visualizations that can justify our claims, they are at risk of losing even more employees.
